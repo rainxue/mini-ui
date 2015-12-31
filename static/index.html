@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="lib/sui/semantic.min.css">
+    <script src="lib/jquery.min.js?v2.x"></script>
+    <script src="lib/sui/semantic.min.js"></script>
+    <script src="lib/react/react.min.js"></script>
+    <script src="lib/react/react-dom.min.js"></script>
+    <script src="lib/react/browser.min.js"></script>    
+    <script src="components/dist/components.js"></script>    
+  </head>
+  <body>
+    <div class="ui secondary pointing menu">
+      <a class="item">首页</a>
+      <a class="item active">公共资源</a>
+      <a class="item">我的备课</a>
+      <div class="right menu">
+        <div class="item">
+          <div class="ui icon input">
+            <input type="text" placeholder="搜索...">
+            <i class="search link icon"></i>
+          </div>
+        </div>
+        <a class="ui item">登出</a>
+      </div>
+    </div>
+
+
+
+
+    <div id="leftMenu"></div>
+    <div id="mycard"></div>
+    <script type="text/babel">
+      var menuItems = [
+        {
+          name:"第一章 Home",
+          items:[
+            {
+              name:"1.1 Search",
+              items:[
+                {name:"1.1.1 Add1"},
+                {name:"1.1.2 Add2"},
+                {name:"1.1.3 Add3"}
+              ]
+            },
+            {name:"1.2 Add"},
+            {name:"1.3 Remove"}
+          ]
+        },{
+          name:"第二章 顶顶顶"
+        },{
+          name:"第三章"
+        }
+      ];
+
+      // ReactDOM.render(
+      //   <VerticalMenu items={menuItems} />,
+      //   document.getElementById('leftMenu')
+      // );
+    </script>
+
+
+<script type="text/babel">
+var sampleCardSchema = {
+  headRightActions:[{action:"like", icon:"like", active_icon:"active like" }, {action:"star", icon:"star", checked_icon:"active star" }],
+  extraActions:[{icon:"fire", titleProperty:"total_count" }, {position:"right", action:"prepare", icon:"location arrow", title:"同步"}]
+};
+var sampleItemData = {
+  title:"教学目标",
+  description:"<div><b>第1课时</b></div><div>教学目标1.。。。</div><div>教学目标2.。。。</div><div>教学目标3.。。。</div><div><b>第2课时</b></div><div>教学目标21.。。。</div><div>教学目标22.。。。</div><div>教学目标23.。。。</div>",
+  total_count:111,
+  like_active:true,
+  stat_active:false
+};
+
+
+      ReactDOM.render(
+        <Card schema={sampleCardSchema} data={sampleItemData} />,
+        document.getElementById('mycard')
+      );
+</script>
+  </body>
+</html>

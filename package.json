@@ -1,0 +1,36 @@
+{
+  "name": "lcms-sdk",
+  "version": "0.0.1",
+  "main": "server.html",
+  "window": {
+    "toolbar": true,
+    "width": 1024,
+    "height": 768
+  },
+  "dependencies": {
+    "MD5": "1.2.1",
+    "body-parser": "1.2.0",
+    "connect-multiparty": "2.0.0",
+    "cookie-parser": "1.3.3",
+    "ejs-locals": "1.0.2",
+    "errorhandler": "1.2.2",
+    "express": "4.10.1",
+    "imageinfo": "^1.0.4",
+    "jimp": "^0.2.21",
+    "jquery": "2.1.4",
+    "lodash": "2.4.1",
+    "log4js": "0.6.21",
+    "lru-cache": "2.5.0",
+    "node-uuid": "1.4.1",
+    "path": "^0.12.7",
+    "q": "^1.0.1",
+    "uuid": "^2.0.1"
+  },
+  "devDependencies": {
+    "broccoli": "^0.16.9",
+    "broccoli-babel-transpiler": "^5.5.0",
+    "broccoli-concat": "^2.0.4",
+    "broccoli-funnel": "^1.0.1",
+    "broccoli-merge-trees": "^1.1.1"
+  }
+}
