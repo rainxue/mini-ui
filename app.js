@@ -17,7 +17,8 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(bodyParser.json());
 // app.use(require('cookie-parser')(config.cookie_secret));
-app.use(express.static(path.dirname(process.execPath) + '/static'));
+//app.use(express.static(path.dirname(process.execPath) + '/static'));
+app.use(express.static(__dirname + '/static'));
 app.use(errorHandler({
     dumpExceptions: true,
     showStack: true

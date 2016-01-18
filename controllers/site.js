@@ -1,4 +1,5 @@
 var config = require('../config').config;
+var log = require('../common/log');
 
 exports.index = function(req, res, next) {
 	log.debug("site", "index in.");

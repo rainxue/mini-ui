@@ -6,8 +6,9 @@
     <script src="lib/sui/semantic.min.js"></script>
     <script src="lib/react/react.min.js"></script>
     <script src="lib/react/react-dom.min.js"></script>
-    <script src="lib/react/browser.min.js"></script>    
-    <script src="components/dist/components.js"></script>    
+    <script src="lib/react/browser.min.js"></script>
+    <script src="components/dist/components.js"></script>
+    <script src="lib/echarts/echarts.js"></script>
   </head>
   <body>
     <div class="ui secondary pointing menu">
@@ -29,6 +30,10 @@
 
 
     <div id="leftMenu"></div>
+
+<input type="button" value="cardlist" onclick="showCardList()" />
+<input type="button" value="clearCardList" onclick="clearCardList()" />
+
     <div id="mycard"></div>
     <script type="text/babel">
       var menuItems = [
@@ -57,13 +62,9 @@
       //   <VerticalMenu items={menuItems} />,
       //   document.getElementById('leftMenu')
       // );
-    </script>
-
-
-<script type="text/babel">
 var sampleCardSchema = {
   headRightActions:[{action:"like", icon:"like", active_icon:"active like" }, {action:"star", icon:"star", checked_icon:"active star" }],
-  extraActions:[{icon:"fire", titleProperty:"total_count" }, {position:"right", action:"prepare", icon:"location arrow", title:"同步"}]
+  extraActions:[{icon:"fire", titleProperty:"total_count" }, {position:"right", action:"prepare", icon:"location arrow", title:"同步11"}]
 };
 var sampleItemData = {
   title:"教学目标",
@@ -74,10 +75,36 @@ var sampleItemData = {
 };
 
 
-      ReactDOM.render(
-        <Card schema={sampleCardSchema} data={sampleItemData} />,
-        document.getElementById('mycard')
-      );
+
+
+
+  // var data_src = "http://localhost:3001/v1.0/instructional_objectives";
+  // ReactDOM.render(
+  //   //<Card schema={sampleCardSchema} data={sampleItemData} />,
+  //   <CardList schema={sampleCardSchema} source={data_src} />,
+  //   document.getElementById('mycard')
+  // );
+
+    </script>
+
+<script>
+function showCardList() {
+  var sampleCardSchema = {
+    headRightActions:[{action:"like", icon:"like", active_icon:"active like" }, {action:"star", icon:"star", checked_icon:"active star" }],
+    extraActions:[{icon:"fire", titleProperty:"total_count" }, {position:"right", action:"prepare", icon:"location arrow", title:"同步11"}]
+  };
+  var data_src = "http://localhost:3001/v1.0/instructional_objectives";
+
+  ReactDOM.render(
+    React.createElement(CardList,{schema:sampleCardSchema,source:data_src}),
+    // <CardList schema={sampleCardSchema} source={data_src} />,
+    document.getElementById('mycard')
+  );
+}
+function clearCardList(){
+  $('#mycard').html("");
+}
 </script>
+
   </body>
 </html>
